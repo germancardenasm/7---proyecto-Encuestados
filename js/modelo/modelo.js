@@ -12,14 +12,14 @@ var Modelo = function() {
 Modelo.prototype = {
   //se obtiene el id más grande asignado a una pregunta
   obtenerUltimoId: function() {
-      /* var maximoId = [];
-
+      var maximoId = [];
       if (this.preguntas.length > 0){
         for(var i = 0; i<this.preguntas.length; i++){
-          maximoId.push(this.preguntas.id[i]);
+          maximoId.push(this.preguntas[i].id);
         }
-        return Math.max(maxId);
-      }*/
+        var elMaximo = Math.max(maximoId);
+        return elMaximo;
+      }
       return 0; 
     },
 
