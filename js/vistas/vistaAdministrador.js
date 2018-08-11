@@ -67,7 +67,19 @@ VistaAdministrador.prototype = {
           });
           contexto.limpiarFormulario();
           contexto.controlador.agregarPregunta(value, respuestas);
-          })
+          }),
+
+          e.botonBorrarPregunta.click(
+            function() {
+            var preguntaSeleccionada = $(".list-group-item.active");
+              alert(preguntaSeleccionada[0].id);
+            $('[name="option[]"]').each(function() {
+              //completar
+              //respuestas.push({"textoRespuesta":this.value, "cantidadPorRespuesta":0});  
+            });
+            contexto.limpiarFormulario();
+            
+            })
     //asociar el resto de los botones a eventos
   
 },
