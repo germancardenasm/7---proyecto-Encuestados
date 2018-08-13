@@ -17,7 +17,7 @@ Modelo.prototype = {
         for(var i = 0; i<this.preguntas.length; i++){
           maximoId.push(this.preguntas[i].id);
         }
-        var elMaximo = Math.max(maximoId);
+        var elMaximo = Math.max.apply(Math,maximoId);
         return elMaximo;
       }
       return 0; 
@@ -35,5 +35,18 @@ Modelo.prototype = {
 
   //se guardan las preguntas
   guardar: function(){
+  },
+
+  eliminarPregunta: function(PreguntaAEliminar) {
+     
+    alert("va a eliminar la pregunta ID: "+ PreguntaAEliminar[0].id);
+    for(var i=0; i<this.preguntas.length; i++){
+      if(PreguntaAEliminar[0].id==this.preguntas[i].id)
+      {
+        console.log("El indice de la pregunta a eliminar es: "+ i);
+        this.preguntas.splice(i,1,);
+      }
+    }
+    this.preguntaAgregada.notificar();
   },
 };

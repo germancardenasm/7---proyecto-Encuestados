@@ -65,14 +65,16 @@ VistaAdministrador.prototype = {
             //completar
             respuestas.push({"textoRespuesta":this.value, "cantidadPorRespuesta":0});  
           });
-          contexto.limpiarFormulario();
           contexto.controlador.agregarPregunta(value, respuestas);
+          contexto.limpiarFormulario();
           }),
 
           e.botonBorrarPregunta.click(
             function() {
             var preguntaSeleccionada = $(".list-group-item.active");
-              alert(preguntaSeleccionada[0].id);
+            contexto.modelo.eliminarPregunta(preguntaSeleccionada);
+            //var indice = preguntas.indexOf(preguntaSeleccionada);
+            //alert(indice);
             $('[name="option[]"]').each(function() {
               //completar
               //respuestas.push({"textoRespuesta":this.value, "cantidadPorRespuesta":0});  
