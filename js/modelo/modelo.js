@@ -7,6 +7,7 @@ var Modelo = function() {
 
   //inicializacion de eventos
   this.preguntaAgregada = new Evento(this);
+  this.preguntaEliminada = new Evento(this);
 };
 
 Modelo.prototype = {
@@ -47,6 +48,13 @@ Modelo.prototype = {
         this.preguntas.splice(i,1,);
       }
     }
+    this.preguntaAgregada.notificar();
+  },
+
+
+  borrarTodo: function() {  
+    alert("va a eliminar Todo ID");
+    this.preguntas=[];
     this.preguntaAgregada.notificar();
   },
 };

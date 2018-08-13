@@ -73,14 +73,13 @@ VistaAdministrador.prototype = {
             function() {
             var preguntaSeleccionada = $(".list-group-item.active");
             contexto.modelo.eliminarPregunta(preguntaSeleccionada);
-            //var indice = preguntas.indexOf(preguntaSeleccionada);
-            //alert(indice);
-            $('[name="option[]"]').each(function() {
-              //completar
-              //respuestas.push({"textoRespuesta":this.value, "cantidadPorRespuesta":0});  
-            });
             contexto.limpiarFormulario();
-            
+            }),
+
+          e.borrarTodo.click(
+            function() {
+            contexto.modelo.borrarTodo();
+            contexto.limpiarFormulario();
             })
     //asociar el resto de los botones a eventos
   
