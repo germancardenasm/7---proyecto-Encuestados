@@ -18,6 +18,10 @@ Controlador.prototype = {
   borrarTodo: function() {
     this.modelo.borrarTodo();
 },
+  
+  editarPregunta: function(pregunta) {
+    this.modelo.editarPregunta(pregunta);
+},
 
 
 };

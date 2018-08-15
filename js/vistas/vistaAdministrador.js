@@ -72,15 +72,22 @@ VistaAdministrador.prototype = {
           e.botonBorrarPregunta.click(
             function() {
             var preguntaSeleccionada = $(".list-group-item.active");
-            contexto.modelo.eliminarPregunta(preguntaSeleccionada);
+            contexto.controlador.eliminarPregunta(preguntaSeleccionada);
             contexto.limpiarFormulario();
             }),
 
           e.borrarTodo.click(
             function() {
-            contexto.modelo.borrarTodo();
+            contexto.controlador.borrarTodo();
             contexto.limpiarFormulario();
-            })
+            }),
+
+          e.botonEditarPregunta.click(
+              function() {
+              var preguntaSeleccionada = $(".list-group-item.active");
+              contexto.controlador.editarPregunta(preguntaSeleccionada);
+              contexto.limpiarFormulario();
+              })
     //asociar el resto de los botones a eventos
   
 },
