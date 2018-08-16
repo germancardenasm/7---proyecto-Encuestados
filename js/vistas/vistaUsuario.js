@@ -86,6 +86,7 @@ VistaUsuario.prototype = {
         var respuestaSeleccionada = $('input[name=' + id + ']:checked').val();
         $('input[name=' + id + ']').prop('checked',false);
         contexto.controlador.agregarVoto(nombrePregunta,respuestaSeleccionada);
+        contexto.reconstruirGrafico();
       });
   },
 

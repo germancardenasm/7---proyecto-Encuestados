@@ -40,8 +40,7 @@ Modelo.prototype = {
   },
 
   recuperarMemoria: function(){
-    if(localStorage.getItem("preguntasAlmacenadas")==null){
-      console.log("no se ha creado la variable, vamos a crearla");
+    if(localStorage.getItem("preguntasAlmacenadas")==undefined){
       localStorage.setItem("preguntasAlmacenadas","");
     }else{
       this.preguntas = JSON.parse(localStorage.getItem("preguntasAlmacenadas"));
