@@ -46,6 +46,7 @@ VistaAdministrador.prototype = {
   reconstruirLista: function() {
     var lista = this.elementos.lista;
     lista.html('');
+    this.modelo.recuperarMemoria();
     var preguntas = this.modelo.preguntas;
     for (var i=0;i<preguntas.length;++i){
       lista.append(this.construirElementoPregunta(preguntas[i]));
