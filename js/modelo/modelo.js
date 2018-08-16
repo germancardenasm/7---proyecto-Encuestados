@@ -44,7 +44,6 @@ Modelo.prototype = {
     for(var i=0; i<this.preguntas.length; i++){
       if(PreguntaAEliminar[0].id==this.preguntas[i].id)
       {
-        console.log("El indice de la pregunta a eliminar es: "+ i);
         this.preguntas.splice(i,1,);
       }
     }
@@ -52,14 +51,11 @@ Modelo.prototype = {
   },
 
   borrarTodo: function() {  
-    alert("va a eliminar Todo ID");
     this.preguntas=[];
     this.preguntaAgregada.notificar();
   },
 
   editarPregunta: function(PreguntaAEditar) {
-     
-    var nuevaPregunta  = prompt("Escriba la neuva pregunta: ");
     for(var i=0; i<this.preguntas.length; i++){
       if(PreguntaAEditar[0].id==this.preguntas[i].id)
       {
