@@ -39,8 +39,7 @@ Modelo.prototype = {
   },
 
   eliminarPregunta: function(PreguntaAEliminar) {
-     
-    alert("va a eliminar la pregunta ID: "+ PreguntaAEliminar[0].id);
+    
     for(var i=0; i<this.preguntas.length; i++){
       if(PreguntaAEliminar[0].id==this.preguntas[i].id)
       {
@@ -60,6 +59,20 @@ Modelo.prototype = {
       if(PreguntaAEditar[0].id==this.preguntas[i].id)
       {
         this.preguntas[i].textoPregunta = nuevaPregunta;
+      }
+    }
+    this.preguntaAgregada.notificar();
+  },
+
+  sumarVoto: function(pregunta, respuesta) {
+    for(var i=0; i<this.preguntas.length; i++){
+      if(pregunta[0].id==this.preguntas[i].id)
+      {
+        for(var j=0; j<preguntas[i].cantidadPorRespuesta.length; j++){
+          if(preguntas[i].cantidadPorRespuesta[j].textoRespuesta == respuesta){
+            preguntas[i].cantidadPorRespuesta[j].cantidad++;
+          }
+        }
       }
     }
     this.preguntaAgregada.notificar();
