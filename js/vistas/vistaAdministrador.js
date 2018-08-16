@@ -65,7 +65,7 @@ VistaAdministrador.prototype = {
           $('[name="option[]"]').each(function() {
             //completar
             if(this.value!=""){
-              respuestas.push({"textoRespuesta":this.value, "cantidadPorRespuesta":0});  
+              respuestas.push({"textoRespuesta":this.value, "cantidad":0});  
             } 
           });
           contexto.controlador.agregarPregunta(value, respuestas);

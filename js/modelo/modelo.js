@@ -37,7 +37,6 @@ Modelo.prototype = {
   //se guardan las preguntas
   guardar: function(){
     localStorage.setItem("preguntasAlmacenadas",JSON.stringify(this.preguntas));
-    
   },
 
   recuperarMemoria: function(){
@@ -46,8 +45,7 @@ Modelo.prototype = {
       localStorage.setItem("preguntasAlmacenadas","");
     }else{
       this.preguntas = JSON.parse(localStorage.getItem("preguntasAlmacenadas"));
-    }
-      
+    }   
   },
 
   eliminarPregunta: function(PreguntaAEliminar) {
