@@ -23,8 +23,8 @@ Controlador.prototype = {
     this.modelo.editarPregunta(pregunta);
 },
 
-  sumarVoto: function(pregunta, respuesta) {
-    this.modelo.sumarVoto(pregunta, respuesta);
+  agregarVoto: function(pregunta, respuesta) {
+    this.modelo.agregarVoto(pregunta, respuesta);
 },
 
 

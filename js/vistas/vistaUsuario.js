@@ -82,10 +82,10 @@ VistaUsuario.prototype = {
     $('#preguntas').find('div').each(function(){
         var nombrePregunta = $(this).attr('value')
         var id = $(this).attr('id')
-        var pregunta = contexto.modelo.obtenerPregunta(nombrePregunta);
+        //var pregunta = contexto.modelo.obtenerPregunta(nombrePregunta);
         var respuestaSeleccionada = $('input[name=' + id + ']:checked').val();
         $('input[name=' + id + ']').prop('checked',false);
-        contexto.controlador.agregarVoto(pregunta,respuestaSeleccionada);
+        contexto.controlador.agregarVoto(nombrePregunta,respuestaSeleccionada);
       });
   },
 

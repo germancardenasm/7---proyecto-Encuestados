@@ -74,18 +74,24 @@ Modelo.prototype = {
     this.preguntaAgregada.notificar();
   },
 
-  sumarVoto: function(pregunta, respuesta) {
+  agregarVoto: function(pregunta, respuesta) {
     for(var i=0; i<this.preguntas.length; i++){
-      if(pregunta[0].id==this.preguntas[i].id)
+      if(pregunta==this.preguntas[i].textoPregunta)
       {
-        for(var j=0; j<preguntas[i].cantidadPorRespuesta.length; j++){
-          if(preguntas[i].cantidadPorRespuesta[j].textoRespuesta == respuesta){
-            preguntas[i].cantidadPorRespuesta[j].cantidad++;
+        for(var j=0; j<this.preguntas[i].cantidadPorRespuesta.length; j++){
+          if(this.preguntas[i].cantidadPorRespuesta[j].textoRespuesta == respuesta){
+            this.preguntas[i].cantidadPorRespuesta[j].cantidad++;
+            this.guardar();
+            this.preguntaAgregada.notificar();
+            return 0;
           }
         }
       }
     }
-    this.preguntaAgregada.notificar();
+  
   },
   
+  obtenerPregunta: function(nombrePrespuesta) {
+    console.log("si llego");
+  },
 };
