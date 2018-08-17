@@ -40,7 +40,7 @@ Modelo.prototype = {
   },
 
   recuperarMemoria: function(){
-    if(localStorage.getItem("preguntasAlmacenadas")==undefined){
+    if(localStorage.getItem("preguntasAlmacenadas")==null){
       localStorage.setItem("preguntasAlmacenadas","");
     }else{
       this.preguntas = JSON.parse(localStorage.getItem("preguntasAlmacenadas"));
@@ -55,21 +55,26 @@ Modelo.prototype = {
         this.preguntas.splice(i,1,);
       }
     }
+    this.guardar();
     this.preguntaAgregada.notificar();
   },
 
   borrarTodo: function() {  
     this.preguntas=[];
+    this.guardar();
     this.preguntaAgregada.notificar();
   },
 
   editarPregunta: function(PreguntaAEditar) {
+    var nuevaPregunta = prompt ("Escriba su pregunta");
     for(var i=0; i<this.preguntas.length; i++){
       if(PreguntaAEditar[0].id==this.preguntas[i].id)
       {
         this.preguntas[i].textoPregunta = nuevaPregunta;
       }
     }
+
+    this.guardar();
     this.preguntaAgregada.notificar();
   },
 
