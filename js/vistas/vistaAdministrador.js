@@ -56,12 +56,13 @@ VistaAdministrador.prototype = {
   configuracionDeBotones: function(){
     var e = this.elementos;
     var contexto = this;
+    
     //asociacion de eventos a boton
         e.botonAgregarPregunta.click(
           function() {
           var value = e.pregunta.val();
           var respuestas = [];
-
+          if(value == ""){alert("No puede estar vacio el campo de pregunta"); return};
           $('[name="option[]"]').each(function() {
             //completar
             if(this.value!=""){
