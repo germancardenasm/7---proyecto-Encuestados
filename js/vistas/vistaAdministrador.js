@@ -46,6 +46,7 @@ VistaAdministrador.prototype = {
   reconstruirLista: function() {
     var lista = this.elementos.lista;
     lista.html('');
+    // se llama funcion para tomar de localStorage las preguntas y respuestas almacenadas si las hay
     this.modelo.recuperarMemoria();
     var preguntas = this.modelo.preguntas;
     for (var i=0;i<preguntas.length;++i){
@@ -62,38 +63,44 @@ VistaAdministrador.prototype = {
           function() {
           var value = e.pregunta.val();
           var respuestas = [];
+          //Validar que se haya ingresado una pregunta.
           if(value == ""){alert("No puede estar vacio el campo de pregunta"); return};
           $('[name="option[]"]').each(function() {
-            //completar
+          //Validacion para no agregar respuestas vacias al arreglo de respuestas
             if(this.value!=""){
               respuestas.push({"textoRespuesta":this.value, "cantidad":0});  
             } 
           });
+          //Validacion para que el adminsitrador de por lo menos dos opciones al usuario para responder.
+          if(respuestas.length < 2){alert("Debe proporcionar al menos dos respuestas."); return};
+          //Si se proporciono una pregunta con al menos dos respuestas se agregan al array
           contexto.controlador.agregarPregunta(value, respuestas);
+          //Una vez agregadas las preguntas se limpia el formulario para crear una nueva pregunta
           contexto.limpiarFormulario();
           }),
 
           e.botonBorrarPregunta.click(
             function() {
-            var preguntaSeleccionada = $(".list-group-item.active");
-            contexto.controlador.eliminarPregunta(preguntaSeleccionada);
-            contexto.limpiarFormulario();
+              //Busca cuel es la pregunta seleccionada para borrar
+              var preguntaSeleccionada = $(".list-group-item.active");
+              if(preguntaSeleccionada.length==0){alert("Debe seleccionar una pregunta para borrar."); return}
+              contexto.controlador.eliminarPregunta(preguntaSeleccionada);
+              contexto.limpiarFormulario();
             }),
 
           e.borrarTodo.click(
             function() {
-            contexto.controlador.borrarTodo();
-            contexto.limpiarFormulario();
+              contexto.controlador.borrarTodo();
+              contexto.limpiarFormulario();
             }),
 
           e.botonEditarPregunta.click(
               function() {
-              var preguntaSeleccionada = $(".list-group-item.active");
-              contexto.controlador.editarPregunta(preguntaSeleccionada);
-              contexto.limpiarFormulario();
+                var preguntaSeleccionada = $(".list-group-item.active");
+                if(preguntaSeleccionada.length==0){alert("Debe seleccionar una pregunta para editar."); return}
+                contexto.controlador.editarPregunta(preguntaSeleccionada);
+                contexto.limpiarFormulario();
               })
-    //asociar el resto de los botones a eventos
-  
 },
 
   limpiarFormulario: function(){

@@ -67,17 +67,21 @@ Modelo.prototype = {
 
   editarPregunta: function(PreguntaAEditar) {
     var nuevaPregunta = prompt ("Escriba su pregunta");
-    for(var i=0; i<this.preguntas.length; i++){
-      if(PreguntaAEditar[0].id==this.preguntas[i].id)
-      {
-        this.preguntas[i].textoPregunta = nuevaPregunta;
-      }
-    }
-
+    var index =  this.encontrarIndex(PreguntaAEditar[0].id);
+    this.preguntas[index].textoPregunta = nuevaPregunta;
     this.guardar();
     this.preguntaAgregada.notificar();
   },
 
+  encontrarIndex: function(indice) {
+    for(var i=0; i<this.preguntas.length; i++){
+      if(indice==this.preguntas[i].id)
+      {
+        return i;
+      }
+    }
+  },
+  
   agregarVoto: function(pregunta, respuesta) {
     for(var i=0; i<this.preguntas.length; i++){
       if(pregunta==this.preguntas[i].textoPregunta)
