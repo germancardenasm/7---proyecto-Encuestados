@@ -81,7 +81,7 @@ Modelo.prototype = {
       }
     }
   },
-  
+
   agregarVoto: function(pregunta, respuesta) {
     for(var i=0; i<this.preguntas.length; i++){
       if(pregunta==this.preguntas[i].textoPregunta)
@@ -99,6 +99,16 @@ Modelo.prototype = {
   
   },
   
+  resetPreguntas: function() {
+    for(var i=0; i<this.preguntas.length; i++){
+        for(var j=0; j<this.preguntas[i].cantidadPorRespuesta.length; j++){
+            this.preguntas[i].cantidadPorRespuesta[j].cantidad=0;
+        }
+    }
+    this.guardar();
+    this.preguntaAgregada.notificar();
+  },
+
   obtenerPregunta: function(nombrePrespuesta) {
     console.log("si llego");
   },

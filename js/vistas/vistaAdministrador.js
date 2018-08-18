@@ -100,7 +100,13 @@ VistaAdministrador.prototype = {
                 if(preguntaSeleccionada.length==0){alert("Debe seleccionar una pregunta para editar."); return}
                 contexto.controlador.editarPregunta(preguntaSeleccionada);
                 contexto.limpiarFormulario();
-              })
+              }),
+
+          e.reset.click(
+            function() {
+              contexto.controlador.resetPreguntas();
+              contexto.limpiarFormulario();
+            })
 },
 
   limpiarFormulario: function(){

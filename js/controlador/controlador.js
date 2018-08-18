@@ -23,6 +23,10 @@ Controlador.prototype = {
     this.modelo.editarPregunta(pregunta);
 },
 
+  resetPreguntas: function() {
+    this.modelo.resetPreguntas();
+},
+
   agregarVoto: function(pregunta, respuesta) {
     this.modelo.agregarVoto(pregunta, respuesta);
 },

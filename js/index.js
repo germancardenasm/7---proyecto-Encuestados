@@ -3,6 +3,7 @@ var vistaAdmin = new VistaAdministrador(modelo, new Controlador(modelo), {
   'lista': $('#lista'),
   'botonEditarPregunta': $('#editarPregunta'),
   'botonBorrarPregunta': $('#borrarPregunta'),
+  'reset': $('#reset'),
   'borrarTodo': $('#borrarTodo'),
   'pregunta': $('#pregunta'),
   'respuesta': $('#respuesta'),
